@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+# InvoicelyPixelNest
 
-## Project info
+A modern and minimal invoice builder built with **React + TypeScript + Vite**, styled using **Tailwind CSS**, and powered by a clean and intuitive UI.  
+Create, customize, download, and manage invoices effortlessly — right from your browser.
 
-**URL**: https://lovable.dev/projects/522e661d-f1a4-4f95-a3b4-5756ca193f45
+## 🚀 Features
 
-## How can I edit this code?
+- 🧾 Create professional invoices  
+- ✏️ Add, edit, delete invoice items  
+- 📦 Auto-calculation of totals & taxes  
+- 🎨 Clean and responsive UI  
+- ⚡ Built with Vite for super-fast performance  
+- 💾 Local storage support (your invoices stay saved)  
+- 📤 Export invoice as PDF / Print  
+- 📱 Fully mobile responsive  
+- 🔔 Toast notifications included  
+- 🧩 Modular & clean component structure  
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 📂 Project Structure
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/522e661d-f1a4-4f95-a3b4-5756ca193f45) and start prompting.
+src/
+├── components/
+│ └── ui/ (buttons, cards, inputs, toast, tooltip, etc.)
+├── pages/
+│ ├── Index.tsx
+│ ├── InvoiceBuilder.tsx
+│ └── NotFound.tsx
+├── hooks/
+├── types/
+├── lib/
+├── main.tsx
+├── index.css
+tailwind.config.ts
+vite.config.ts
+tsconfig.json
 
-Changes made via Lovable will be committed automatically to this repo.
+yaml
+Copy code
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **React**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **ShadCN UI**
+- **Lucide Icons**
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📦 Installation & Setup
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/CodeWithAdnaan/invoicelypixelnest.git
+cd invoicelypixelnest
+2️⃣ Install dependencies
+bash
+Copy code
+npm install
+3️⃣ Start development server
+bash
+Copy code
 npm run dev
-```
+4️⃣ Build for production
+bash
+Copy code
+npm run build
+🖼️ Screenshots
+Add your screenshots here:
 
-**Edit a file directly in GitHub**
+markdown
+Copy code
+/screenshots
+   - home.png
+   - editor.png
+   - invoice-preview.png
+🌐 Deployment
+You can deploy this project easily on:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Vercel
 
-**Use GitHub Codespaces**
+Netlify
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Cloudflare Pages
 
-## What technologies are used for this project?
+For Vercel:
 
-This project is built with:
+bash
+Copy code
+vercel deploy
+🤝 Contributing
+Contributions are welcome!
+Feel free to submit issues or pull requests.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+📜 License
+This project is licensed under the MIT License.
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/522e661d-f1a4-4f95-a3b4-5756ca193f45) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+👨‍💻 Developer
+Built with ❤ by CodeWithAdnaan
+GitHub: https://github.com/CodeWithAdnaan
