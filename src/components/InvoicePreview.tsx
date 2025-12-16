@@ -79,6 +79,11 @@ const InvoicePreview = forwardRef<HTMLDivElement, InvoicePreviewProps>(
               <p className={`whitespace-pre-line text-sm ${template === 'modern' ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
                 {invoice.companyAddress || "Company Address"}
               </p>
+              {invoice.companyWebsite && (
+                <p className={`text-sm mt-1 ${template === 'modern' ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+                  {invoice.companyWebsite}
+                </p>
+              )}
             </div>
           </div>
           <div className="text-right">
@@ -188,6 +193,20 @@ const InvoicePreview = forwardRef<HTMLDivElement, InvoicePreviewProps>(
                 {formatCurrency(total, currency)}
               </span>
             </div>
+            {invoice.isAdvancePayment && (
+              <>
+                <div className="flex justify-between py-2 text-sm border-t border-border">
+                  <span className="text-muted-foreground">Advance Paid</span>
+                  <span className="text-green-600">-{formatCurrency(invoice.advancePaymentAmount, currency)}</span>
+                </div>
+                <div className="flex justify-between py-2 text-sm">
+                  <span className="font-medium text-foreground">Amount Due</span>
+                  <span className={`font-semibold ${template === 'modern' ? 'text-accent' : 'text-destructive'}`}>
+                    {formatCurrency(Math.max(0, total - invoice.advancePaymentAmount), currency)}
+                  </span>
+                </div>
+              </>
+            )}
           </div>
         </div>
 

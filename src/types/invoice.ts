@@ -25,6 +25,7 @@ export interface InvoiceData {
   companyName: string;
   companyAddress: string;
   companyLogo: string;
+  companyWebsite: string;
   clientName: string;
   clientEmail: string;
   invoiceNumber: string;
@@ -35,6 +36,8 @@ export interface InvoiceData {
   notes: string;
   currency: CurrencyCode;
   template: InvoiceTemplate;
+  isAdvancePayment: boolean;
+  advancePaymentAmount: number;
   createdAt: string;
 }
 

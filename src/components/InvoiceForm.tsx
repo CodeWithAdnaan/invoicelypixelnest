@@ -4,7 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { InvoiceData, InvoiceItem, InvoiceTemplate, CurrencyCode, currencies, generateId, formatCurrency } from "@/types/invoice";
+import { Switch } from "@/components/ui/switch";
+import { InvoiceData, InvoiceItem, InvoiceTemplate, CurrencyCode, currencies, generateId, formatCurrency, calculateTotal } from "@/types/invoice";
 import { useRef } from "react";
 
 interface InvoiceFormProps {
@@ -167,6 +168,16 @@ const InvoiceForm = ({ invoice, setInvoice }: InvoiceFormProps) => {
                 className="hidden"
               />
             </div>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="companyWebsite">Company Website</Label>
+            <Input
+              id="companyWebsite"
+              placeholder="www.yourcompany.com"
+              value={invoice.companyWebsite}
+              onChange={(e) => updateField('companyWebsite', e.target.value)}
+              className="input-field"
+            />
           </div>
           <div className="space-y-2 md:col-span-2">
             <Label htmlFor="companyAddress">Company Address</Label>
@@ -350,6 +361,42 @@ const InvoiceForm = ({ invoice, setInvoice }: InvoiceFormProps) => {
               className="input-field min-h-[100px]"
             />
           </div>
+        </div>
+      </div>
+
+      {/* Advance Payment */}
+      <div className="form-section animate-fade-up" style={{ animationDelay: '0.6s' }}>
+        <h3 className="font-display text-lg font-medium text-foreground mb-4">Payment Status</h3>
+        <div className="grid gap-4">
+          <div className="flex items-center justify-between p-4 rounded-lg bg-secondary/50">
+            <div className="space-y-0.5">
+              <Label htmlFor="advancePayment" className="text-base">Advance Payment Received</Label>
+              <p className="text-sm text-muted-foreground">Toggle if client has made an advance payment</p>
+            </div>
+            <Switch
+              id="advancePayment"
+              checked={invoice.isAdvancePayment}
+              onCheckedChange={(checked) => setInvoice(prev => ({ ...prev, isAdvancePayment: checked, advancePaymentAmount: checked ? prev.advancePaymentAmount : 0 }))}
+            />
+          </div>
+          {invoice.isAdvancePayment && (
+            <div className="space-y-2 animate-fade-up">
+              <Label htmlFor="advanceAmount">Advance Amount Received</Label>
+              <Input
+                id="advanceAmount"
+                type="number"
+                min="0"
+                step="0.01"
+                value={invoice.advancePaymentAmount}
+                onChange={(e) => updateField('advancePaymentAmount', parseFloat(e.target.value) || 0)}
+                className="input-field"
+                placeholder="Enter advance payment amount"
+              />
+              <p className="text-sm text-muted-foreground">
+                Pending Amount: {formatCurrency(Math.max(0, calculateTotal(invoice.items, invoice.taxRate) - invoice.advancePaymentAmount), invoice.currency)}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
