@@ -16,6 +16,7 @@ const getDefaultInvoice = (): InvoiceData => {
     companyName: "",
     companyAddress: "",
     companyLogo: "",
+    companyWebsite: "",
     clientName: "",
     clientEmail: "",
     invoiceNumber: generateInvoiceNumber(),
@@ -33,6 +34,8 @@ const getDefaultInvoice = (): InvoiceData => {
     notes: "",
     currency: "USD",
     template: "classic",
+    isAdvancePayment: false,
+    advancePaymentAmount: 0,
     createdAt: new Date().toISOString(),
   };
 };
